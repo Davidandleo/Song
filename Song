@@ -1,5 +1,5 @@
 #Fly me to the moon
-sing_effect = "C:/Users/David Ortiz/Documents/Audacity/fLY ME TOO THE MOON.wav"
+sing_effect = "C:/Users/David Ortiz/Documents/Audacity/Fly Me To The Moon (2008 Remastered).wav"
 
 
 snap_effect = "C:/Users/David Ortiz/Documents/Audacity/Snap Sound Effect [ HD ].wav"
@@ -9,7 +9,8 @@ use_synth :piano
 use_bpm 135
 
 sample sing_effect
-sleep 31
+sleep 17.5
+
 1.times do
   play :d5
   sleep 1.5
@@ -20,17 +21,17 @@ sleep 31
   play :a4
   sleep 0.5
   play :g4
-  sleep 0.5
+  sleep 1.5
   
   
   play :g4
-  sleep 0.5
+  sleep 1
   play :g4
   play :a4
   sleep 1.5
   play :b4
   play :d5
-  sleep 1
+  sleep 2
   
   
   play :cs5
@@ -56,16 +57,16 @@ sleep 31
   play :f4
   sleep 0.5
   play :e4
-  sleep 0.5
+  sleep 1
   
   play :e4
-  sleep 0.5
+  sleep 1.5
   play :f4
   sleep 1.5
   play :g4
   sleep 1
   play :b4
-  sleep 1
+  sleep 2
   
   play :a4
   sleep 1.5
@@ -78,6 +79,12 @@ sleep 31
   play :d4
   sleep 0.5
   stop
-
+  
+  
+  
+  
+  
+  
+  
+  
 end
-
