@@ -1,4 +1,25 @@
+sax_effect="C:/Users/David Ortiz/Documents/Audacity/Sax fly me to the moon intro.wav"
+a=1
+b=0.5
+sample sax_effect
+use_bpm 144
+
+
+4.times do
+  sample :drum_snare_hard, amp: a
+  sleep 1
+  sample :drum_snare_soft, amp: b
+  sleep 1
+  sample :drum_snare_soft, amp: b
+  sleep 1
+  a=a-0.25
+  b=b-0.15
+end
+
+
+
 live_loop:alto_sax do
+  
   use_synth :bass_foundation
   play:f5
   sleep 1.5
@@ -75,4 +96,29 @@ live_loop:piano_1 do
   play:e4
   play:c4
   sleep 1
+end
+live_loop:piano_2 do
+  use_synth :piano
+  play:f2, amp: 0.2
+  sleep 1
+  play:eb3 , amp: 0.2
+  sleep 2
+  
+  play:bb2 , amp: 0.2
+  sleep 1
+  play:f3 , amp: 0.2
+  sleep 2
+  
+  play:eb3 , amp: 0.2
+  sleep 1
+  play:e2 , amp: 0.2
+  sleep 1
+  play:eb3 , amp: 0.2
+  sleep 1
+  
+  play:eb3 , amp: 0.2
+  sleep 1
+  play :bb2 , amp: 0.2
+  sleep 1
+  play:e2 , amp: 0.2
 end
