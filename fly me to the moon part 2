@@ -21,8 +21,7 @@ y=index
   a=a-0.25
   b=b-0.15
 end
-
-sleep 1
+sleep 0.1
 sample sax_effect,amp: 0.7,use_bpm: 95
 sleep 3
 
