@@ -1,10 +1,16 @@
-sax_effect="C:/Users/David Ortiz/Documents/Audacity/Sax fly me to the moon intro.wav"
+#Fly me to the moon
+sax_effect="C:/Users/David Ortiz/Documents/Audacity/Alto Sax FLy me to the moon.wav"
+
 a=1
 b=0.5
-sample sax_effect
-use_bpm 144
-
-
+use_bpm 95
+sax_sleep =[1.5,0.5,0.5,0.5,1.5,0.5,0.5,0.5,1.5,0.5,0.5,0.5,3]
+sax_notes =[:f5,:ef,:d5,:c5,:bb4,:c5,:bb4,:c5,:d5,:f5,:e5,:d5,:c5,:bb4,:a4]
+x=0
+y=0
+index=0
+x=index
+y=index
 4.times do
   sample :drum_snare_hard, amp: a
   sleep 1
@@ -16,109 +22,94 @@ use_bpm 144
   b=b-0.15
 end
 
-
+sleep 1
+sample sax_effect,amp: 0.7,use_bpm: 95
+sleep 3
 
 live_loop:alto_sax do
-  
-  use_synth :bass_foundation
-  play:f5
-  sleep 1.5
-  play :e5
-  sleep 0.5
-  play :d5
-  sleep 0.5
-  play:c5
-  sleep 0.5
-  
-  play:bb4
-  sleep 1.5
-  play:c5
-  sleep 0.5
-  play:d5
-  sleep 0.5
-  play:f5
-  sleep 0.5
-  
-  play:e5
-  sleep 1.5
-  play:d5
-  sleep 0.5
-  play:c5
-  sleep 0.5
-  play:bb4
-  sleep 0.5
-  
-  play:a4
-  sleep 3
+  8.times do
+    use_synth :bass_foundation
+    play sax_notes[x]
+    sleep sax_sleep [y]
+    x=x+1
+    y=y+1
+  end
+  stop
 end
 
 live_loop:piano_1 do
-  use_synth :piano
-  play:a4
-  play:e4
-  play:c4
-  sleep 2
-  play:a4
-  play:f4
-  play:e4
-  play:c4
-  sleep 1
-  
-  play:d4
-  play:g4
-  play:bb4
-  sleep 2
-  play:bb4
-  play:f4
-  play:d4
-  sleep 1
-  
-  play:bb4
-  play:g4
-  play:f4
-  play:e4
-  sleep 2
-  play:bb4
-  play:f4
-  play:e4
-  play:d4
-  sleep 1
-  
-  play:a4
-  play:e4
-  play:c4
-  sleep 1
-  play:bb4
-  play:e4
-  play:c4
-  sleep 1
-  play:bb4
-  play:e4
-  play:c4
-  sleep 1
+  1.times do
+    use_synth :piano
+    play:ab4
+    play:eb4
+    play:c4
+    sleep 2
+    play:ab4
+    play:f4
+    play:eb4
+    play:c4
+    sleep 1
+    
+    play:db4
+    play:g4
+    play:bb4
+    sleep 2
+    play:bb4
+    play:f4
+    play:db4
+    sleep 1
+    
+    play:bb4
+    play:g4
+    play:f4
+    play:eb4
+    sleep 2
+    play:bb4
+    play:f4
+    play:eb4
+    play:db4
+    sleep 1
+    
+    play:ab4
+    play:eb4
+    play:c4
+    sleep 1
+    play:bb4
+    play:eb4
+    play:c4
+    sleep 1
+    play:bb4
+    play:eb4
+    play:c4
+    sleep 1
+  end
+  stop
 end
 live_loop:piano_2 do
-  use_synth :piano
-  play:f2, amp: 0.2
-  sleep 1
-  play:eb3 , amp: 0.2
-  sleep 2
-  
-  play:bb2 , amp: 0.2
-  sleep 1
-  play:f3 , amp: 0.2
-  sleep 2
-  
-  play:eb3 , amp: 0.2
-  sleep 1
-  play:e2 , amp: 0.2
-  sleep 1
-  play:eb3 , amp: 0.2
-  sleep 1
-  
-  play:eb3 , amp: 0.2
-  sleep 1
-  play :bb2 , amp: 0.2
-  sleep 1
-  play:e2 , amp: 0.2
+  1.times do
+    use_synth :piano
+    play:f2, amp: 0.2
+    sleep 1
+    play:eb3 , amp: 0.2
+    sleep 2
+    
+    play:bb2 , amp: 0.2
+    sleep 1
+    play:f3 , amp: 0.2
+    sleep 2
+    
+    play:eb3 , amp: 0.2
+    sleep 1
+    play:eb2 , amp: 0.2
+    sleep 1
+    play:eb3 , amp: 0.2
+    sleep 1
+    
+    play:eb3 , amp: 0.2
+    sleep 1
+    play :bb2 , amp: 0.2
+    sleep 1
+    play:eb2 , amp: 0.2
+  end
+  stop
 end
