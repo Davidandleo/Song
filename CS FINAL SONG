@@ -1,0 +1,324 @@
+#Fly me to the moon
+sax_effect="/Users/marthahernandez/Desktop/Play Sinatra on the Saxophone- Fly me to the moon - Sheet Music Arrangement.wav"
+
+transition="/Users/marthahernandez/Desktop/transition to win.wav"
+
+a=1
+b=0.5
+use_bpm 95
+sax_sleep =[1.5,0.5,0.5,0.5,1.5,0.5,0.5,0.5,1.5,0.5,0.5,0.5,3]
+sax_notes =[:f5,:ef,:d5,:c5,:bb4,:c5,:bb4,:c5,:d5,:f5,:e5,:d5,:c5,:bb4,:a4]
+x=0
+y=0
+index=0
+x=index
+y=index
+4.times do
+  sample :drum_snare_hard, amp: a
+  sleep 1
+  sample :drum_snare_soft, amp: b
+  sleep 1
+  sample :drum_snare_soft, amp: b
+  sleep 1
+  a=a-0.25
+  b=b-0.15
+end
+sleep 0.1
+sample sax_effect,amp: 0.7,use_bpm: 95
+
+live_loop:alto_sax do
+  8.times do
+    use_synth :bass_foundation
+    play sax_notes[x]
+    sleep sax_sleep [y]
+    x=x+1
+    y=y+1
+  end
+  stop
+end
+
+live_loop:piano_1 do
+  1.times do
+    use_synth :piano
+    play:ab4
+    play:eb4
+    play:c4
+    sleep 2
+    play:ab4
+    play:f4
+    play:eb4
+    play:c4
+    sleep 1
+    
+    play:db4
+    play:g4
+    play:bb4
+    sleep 2
+    play:bb4
+    play:f4
+    play:db4
+    sleep 1
+    
+    play:bb4
+    play:g4
+    play:f4
+    play:eb4
+    sleep 2
+    play:bb4
+    play:f4
+    play:eb4
+    play:db4
+    sleep 1
+    
+    play:ab4
+    play:eb4
+    play:c4
+    sleep 1
+    play:bb4
+    play:eb4
+    play:c4
+    sleep 1
+    play:bb4
+    play:eb4
+    play:c4
+    sleep 1
+  end
+  stop
+end
+live_loop:piano_2 do
+  1.times do
+    use_synth :piano
+    play:f2, amp: 0.2
+    sleep 1
+    play:eb3 , amp: 0.2
+    sleep 2
+    
+    play:bb2 , amp: 0.2
+    sleep 1
+    play:f3 , amp: 0.2
+    sleep 2
+    
+    play:eb3 , amp: 0.2
+    sleep 1
+    play:eb2 , amp: 0.2
+    sleep 1
+    play:eb3 , amp: 0.2
+    sleep 1
+    
+    play:eb3 , amp: 0.2
+    sleep 1
+    play :bb2 , amp: 0.2
+    sleep 1
+    play:eb2 , amp: 0.2
+    sleep 1
+  end
+  stop
+end
+
+b=3
+s=0.5
+outro1_effect="/Users/marthahernandez/Desktop/outro part 1.wav"
+outro2_effect="/Users/marthahernandez/Desktop/outro part 2.wav"
+outro3_effect="/Users/marthahernandez/Desktop/outro part 3.wav"
+outro4_effect="/Users/marthahernandez/Desktop/outro part 4.wav"
+outro5_effect="/Users/marthahernandez/Desktop/outro part 5.wav"
+
+sleep 12
+sample transition, amp:3
+sleep 70
+
+
+fmelody_effect="/Users/marthahernandez/Desktop/melody.wav"
+fvoice_effect="/Users/marthahernandez/Desktop/franks godly voice.wav"
+fstart_effect="/Users/marthahernandez/Desktop/Frank Ocean intro.wav"
+3.times do
+  sample fstart_effect, amp:b
+  sleep 5
+  a=a+1
+end
+sample fmelody_effect ,amp: 2.5
+sleep 1
+define:scared_fx do |a,b,c,d|
+  use_bpm 90
+  use_synth:piano
+  play:a ,amp: 0.5
+  sleep s
+  play:b ,amp: 0.5
+  sleep s
+  play:c ,amp: 0.5
+  sleep s
+  play:d ,amp: 0.5
+  sleep 2.5
+end
+use_bpm 90
+live_loop:piano_1 do
+  1.times do
+    use_synth:piano
+    sleep 4
+    
+    sleep 4
+    
+    sleep 4
+    
+    sleep 2
+    sleep 1
+    play:c4
+    sleep s
+    play:d4
+    sleep s
+    
+    play:g4
+    sleep s
+    play:f4
+    sleep s
+    play:e4
+    sleep s
+    play:d4
+    sleep 1
+    sleep s
+    play:c4
+    sleep s
+    play:g4
+    sleep s
+    
+    play:g4
+    sleep s
+    play:f4
+    sleep s
+    play:e4
+    sleep s
+    play:d4
+    sleep 1
+    sleep s
+    play:c4
+    sleep s
+    play :g4
+    sleep s
+    
+    play:g4
+    sleep s
+    play:f4
+    sleep s
+    play:e4
+    sleep s
+    play:d4
+    sleep s
+    play:d4
+    sleep s
+    play:e4
+    sleep s
+    play:c4
+    sleep s
+    sleep s
+    
+    play:g4
+    sleep s
+    play:f4
+    sleep s
+    play:e4
+    sleep s
+    play:d4
+    sleep 1
+    sleep s
+    play:c4
+    sleep s
+    play:g4
+    sleep s
+    
+    play:g4
+    sleep s
+    play:f4
+    sleep s
+    play:e4
+    sleep s
+    play:d4
+    sleep 1
+    sleep s
+    play:g4
+    sleep s
+    play:e4
+    sleep s
+  end
+  stop
+end
+
+live_loop:piano_2 do
+  1.times do
+    use_synth:piano
+    scared_fx :f2,:a2,:c3,:e3
+    scared_fx :d2,:f2,:a2,:c3
+    scared_fx :e2,:g2,:b2,:d3
+    scared_fx :a1,:c2,:e2,:a2
+    scared_fx :f2,:a2,:c3,:e3
+    scared_fx :d2,:f2,:a2,:c3
+    scared_fx :e2,:g2,:b2,:d3
+    scared_fx :a1,:c1,:e2,:a2
+    scared_fx :f2,:a2,:c3,:e3
+    scared_fx :e2,:g2,:b2,:d3
+  end
+  stop
+end
+sleep 19
+sample fvoice_effect, amp:5
+live_loop:singing do
+  use_synth:piano
+  1.times do
+    sleep 4
+    sleep 4
+    sleep 4
+    
+    sleep 1
+    sleep 1
+    sleep 1
+    play:c4
+    sleep s
+    play:d4
+    sleep s
+    5.times do
+      play:g4
+      sleep s
+      play:f4
+      sleep s
+      play:e4
+      sleep s
+      play:d4
+      sleep s
+      play:d4
+      sleep s
+      sleep s
+      play:c4
+      sleep s
+      play:g4
+      sleep s
+    end
+  stop end
+  
+  play:g4
+  sleep s
+  play:f4
+  sleep s
+  play:e4
+  sleep s
+  play:d4
+  sleep s
+  play:d5
+  sleep s
+  sleep s
+  play:g4
+  sleep s
+  play:e4
+  sleep s
+  stop
+end
+sleep 40
+sample outro1_effect,amp:8
+sleep 4
+sample outro2_effect, amp:6
+sleep 10
+sample outro3_effect, amp:4
+sleep 14
+sample outro4_effect,amp:2
+sleep 7.5
+sample outro5_effect,amp:1
+
+
